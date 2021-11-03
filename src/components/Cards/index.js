@@ -41,7 +41,8 @@ const Cards = () => {
   return (
     <>
       <Options searchCards={searchCards} />
-      <div className="cardsWrapper">
+      {cards.length ?
+        (<div className="cardsWrapper">
         <div className="cards">
           {cards.map((pokemon) => {
             return (
@@ -56,7 +57,10 @@ const Cards = () => {
             );
           })}
         </div>
-      </div>
+      </div>)
+      : (<div className="loadingWrapper">
+        <h1>Loading ...</h1>
+      </div>)}
     </>
   );
 };
